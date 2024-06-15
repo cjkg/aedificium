@@ -1,0 +1,8 @@
+<h1>Aedificium</h1>
+
+<ul>
+  <% @rooms.each do |room| %>
+    <h2><%= link_to room.name, room %></h2>
+    <p><%= room.description %></p>
+  <% end %>
+</ul>

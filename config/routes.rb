@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  # Define a resource route for books
-  resources :books
-
-  # Define a resource route for authors
-  resources :authors
+  # Define a resource route for rooms
+  resources :rooms do
+    resources :books
+  end
 end

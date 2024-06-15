@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_14_023343) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_15_023259) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,25 +27,32 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_14_023343) do
     t.bigint "author_id"
     t.text "title", null: false
     t.string "ISBN"
-    t.string "year"
+    t.integer "year"
     t.string "publisher"
     t.string "location"
     t.string "format"
     t.integer "pages"
     t.string "language"
     t.string "original_language"
-    t.string "translator"
-    t.string "editor"
+    t.text "translator"
+    t.text "editor"
     t.string "edition"
     t.integer "rating"
     t.text "blurb"
     t.text "notes"
-    t.boolean "available", default: true
     t.boolean "forbidden", default: false
     t.boolean "favorite", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "room_id"
     t.index ["author_id"], name: "index_books_on_author_id"
+    t.index ["room_id"], name: "index_books_on_room_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "access", null: false
+    t.text "description"
   end
 
 end
