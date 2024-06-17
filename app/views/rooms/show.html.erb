@@ -3,7 +3,7 @@
 <ul>
   <% @books.each do |book| %>
     <li>
-      <%= book.author.first_name %> <%= book.author.last_name %> - <em><%= book.title %></em>
+      <%= link_to book.author.first_name + (book.author.last_name || "") + " - " + book.title, room_book_path(@room, book) %>
     </li>
   <% end %>
 </ul>

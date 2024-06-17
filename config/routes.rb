@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  # root "welcome#index"
 
-  # Define a resource route for rooms
+  # Define a resource route for rooms, TODO: tighten up later
   resources :rooms do
     resources :books
   end
