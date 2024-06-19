@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :books
   end
+
+  get "/books/new" => "books#new"
 end
