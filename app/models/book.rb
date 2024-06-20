@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Book < ApplicationRecord
-  belongs_to :author
+  has_many :book_authors
+  has_many :authors, through: :book_authors
   belongs_to :room
 
   validates :title, presence: true

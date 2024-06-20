@@ -1,12 +1,8 @@
 # frozen string literal: true
 
 class Author < ApplicationRecord
-  has_many :books
+  has_many :book_authors
+  has_many :books, through: :book_authors
 
-  validates :first_name, presence: true
-
-  def author_first_last
-    last_name = self.last_name.present? ? " " + self.last_name : ""
-    self.first_name + last_name
-  end
+  validates :name, presence: true
 end
