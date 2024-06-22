@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_20_011618) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_22_000808) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "authors", force: :cascade do |t|
-    t.string "year_of_birth"
-    t.string "year_of_death"
+    t.string "date_of_birth"
+    t.string "date_of_death"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_011618) do
 
   create_table "books", force: :cascade do |t|
     t.text "title", null: false
-    t.string "ISBN"
+    t.string "isbn"
     t.string "publisher"
     t.string "location"
     t.string "format"
@@ -55,6 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_011618) do
     t.integer "librarything_id"
     t.text "series"
     t.text "subjects"
+    t.integer "copy"
     t.index ["room_id"], name: "index_books_on_room_id"
   end
 
@@ -64,6 +65,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_011618) do
     t.text "description"
   end
 
-  add_foreign_key "book_authors", "authors"
-  add_foreign_key "book_authors", "books"
+  add_foreign_key "book_authors", "authors", on_delete: :cascade
+  add_foreign_key "book_authors", "books", on_delete: :cascade
 end

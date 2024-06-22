@@ -9,21 +9,11 @@ class OpenLibraryBooksApi
   end
 
   def isbn(isbn)
-    self.class.get("/isbn/#{isbn_cleaner(isbn)}.json")
+    self.class.get("/isbn/#{isbn}.json")
   end
 
-  def author(key)
+  def basic_call(key)
     self.class.get("#{key}.json")
-  end
-
-  def book(key)
-    self.class.get("#{key}.json")
-  end
-
-  private
-
-  def isbn_cleaner(isbn)
-    isbn.upcase.gsub(/[^0-9A-Z]/, '')
   end
 end
 
