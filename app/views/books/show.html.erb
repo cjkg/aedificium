@@ -1,15 +1,15 @@
 <h1><%= @book.title %></h1>
-<h2><%= @author_name %></h2>
+<h2><%= @book.full_authors_display %></h2>
 
 <h3>Details</h3><%# TODO: Drawer %>
 
-Librarian Rating: <%= @book.rating || "" %></br>
-Librarian Favorite?: <%= @book.favorite ? "Yes" : "No"  %></br>
+Librarian Rating: <%= @book.rating || "Unrated" %></br>
+Librarian Favorite? <%= @book.favorite ? "Yes" : "No"  %></br>
 
 </br>
 Format: <%= @book.format || "" %><br/>
 Pages: <%= @book.pages || "" %><br/>
-Year of Publication: <%= @book.year || "" %><br/>
+Year of Publication: <%= @book.published || "" %><br/>
 Publisher: <%= @book.publisher || "" %><br/>
 Publisher Location: <%= @book.location || "" %><br/>
 Edition: <%= @book.edition || "" %><br/>
@@ -23,4 +23,5 @@ Translator: <%= @book.translator || "" %><br/>
 Editor: <%= @book.editor || "" %><br/>
 
 </br>
-ISBN: <%= @book.ISBN || "" %>
+ISBN 10: <%= @book.isbn_10 || "" %><br/>
+ISBN 13: <%= @book.isbn_13|| "" %
