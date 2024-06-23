@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_22_000808) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_23_014101) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_22_000808) do
 
   create_table "books", force: :cascade do |t|
     t.text "title", null: false
-    t.string "isbn"
+    t.string "isbn_10"
     t.string "publisher"
     t.string "location"
     t.string "format"
@@ -56,6 +56,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_22_000808) do
     t.text "series"
     t.text "subjects"
     t.integer "copy"
+    t.string "isbn_13"
+    t.text "subtitle"
     t.index ["room_id"], name: "index_books_on_room_id"
   end
 
